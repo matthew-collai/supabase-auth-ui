@@ -133,7 +133,6 @@ function Auth({
     showLinks,
     i18n,
     appearance,
-    serviceAgreementText
   }
 
   /**
@@ -165,6 +164,7 @@ function Auth({
             i18n={i18n}
             additionalData={additionalData}
             children={children}
+            serviceAgreementText={serviceAgreementText}
           />
         </Container>
       )
