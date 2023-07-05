@@ -51,6 +51,7 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   color?: 'default' | 'primary'
   loading?: boolean
   appearance?: Appearance
+  tos?: boolean
 }
 
 const Button: React.FC<ButtonProps> = ({

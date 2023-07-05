@@ -59,7 +59,7 @@ function EmailAuth({
   const [error, setError] = useState('')
   const [loading, setLoading] = useState(false)
   const [message, setMessage] = useState('')
-  const [tos, setTos] = useState(false);
+  const [tos, setTos] = useState(false)
 
   useEffect(() => {
     isMounted.current = true
@@ -239,9 +239,9 @@ function EmailAuth({
               id="service_agreement"
               type="checkbox"
               name="service_agreement"
-              defaultValue={false}
+              checked={false}
               onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-                setTos(e.target.value)
+                setTos(e.target.checked)
               }
               appearance={appearance}
             />

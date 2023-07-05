@@ -46,6 +46,7 @@ interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
   children?: React.ReactNode
   type: 'text' | 'password' | 'email' | 'checkbox'
   appearance?: Appearance
+  tos?: boolean
 }
 
 const Input: React.FC<InputProps> = ({ children, appearance, ...props }) => {
