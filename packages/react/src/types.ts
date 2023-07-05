@@ -17,4 +17,5 @@ export interface Appearance extends BaseAppearance {
 export interface Auth extends BaseAuth {
   children?: ReactNode
   appearance?: Appearance
+  serviceAgreementText?: string
 }

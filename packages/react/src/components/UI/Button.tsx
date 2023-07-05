@@ -58,6 +58,7 @@ const Button: React.FC<ButtonProps> = ({
   color = 'default',
   appearance,
   icon,
+  tos = true,
   loading = false,
   ...props
 }) => {
@@ -72,7 +73,7 @@ const Button: React.FC<ButtonProps> = ({
       {...props}
       style={appearance?.style?.button}
       className={classNames.join(' ')}
-      disabled={loading}
+      disabled={loading && !tos}
     >
       {icon}
       {children}
