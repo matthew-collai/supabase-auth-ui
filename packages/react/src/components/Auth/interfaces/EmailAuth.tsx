@@ -143,7 +143,7 @@ function EmailAuth({
               onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
                 setEmail(e.target.value)
               }
-              tos={tos}
+              tos={tos || authView === 'sign_in'}
               autoComplete="email"
               appearance={appearance}
             />
@@ -158,7 +158,7 @@ function EmailAuth({
               name="password"
               placeholder={labels?.password_input_placeholder}
               defaultValue={password}
-              tos={tos}
+              tos={tos || authView === 'sign_in'}
               onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
                 setPassword(e.target.value)
               }
@@ -176,7 +176,7 @@ function EmailAuth({
           color="primary"
           loading={loading}
           appearance={appearance}
-          tos={tos}
+          tos={tos || authView === 'sign_in'}
         >
           {loading ? labels?.loading_button_label : labels?.button_label}
         </Button>
