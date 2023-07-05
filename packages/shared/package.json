@@ -1,5 +1,5 @@
 {
-  "name": "@supabase/auth-ui-shared",
+  "name": "@collai/auth-ui-shared",
   "version": "0.1.6",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
@@ -15,7 +15,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/supabase/auth-ui.git"
+    "url": "git+https://github.com/matthew-collai/supabase-auth-ui.git"
   },
   "keywords": [
     "Supabase",
@@ -27,9 +27,9 @@
   "author": "Supabase",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/supabase/auth-ui/issues"
+    "url": "https://github.com/matthew-collai/supabase-auth-ui/issues"
   },
-  "homepage": "https://github.com/supabase/auth-ui#readme",
+  "homepage": "https://github.com/matthew-collai/supabase-auth-ui#readme",
   "devDependencies": {
     "@stitches/core": "^1.2.8",
     "@supabase/supabase-js": "^2.21.0",
