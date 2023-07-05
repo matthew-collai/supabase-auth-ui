@@ -5,6 +5,7 @@ export interface Appearance extends BaseAppearance {
   style?: {
     anchor?: CSSProperties
     button?: CSSProperties
+    checkbox?: CSSProperties
     container?: CSSProperties
     divider?: CSSProperties
     input?: CSSProperties
