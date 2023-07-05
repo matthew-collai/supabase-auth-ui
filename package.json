@@ -1,6 +1,6 @@
 {
-  "name": "@supabase/auth-ui",
-  "version": "0.0.0",
+  "name": "@collai/auth-ui",
+  "version": "0.1.0",
   "private": true,
   "scripts": {
     "build": "turbo run build",
@@ -32,5 +32,8 @@
   "packageManager": "pnpm@7.1.7",
   "peerDependencies": {
     "typescript": "4.0.x || 4.1.x || 4.2.x || 4.3.x || 4.4.x || 4.5.x || 4.6.x"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
   }
 }
