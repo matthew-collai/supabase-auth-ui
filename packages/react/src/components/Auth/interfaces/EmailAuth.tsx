@@ -239,8 +239,9 @@ function EmailAuth({
               id="service_agreement"
               type="checkbox"
               name="service_agreement"
+              checked={false}
               onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-                setTos(e.target.value)
+                setTos(e.target.checked)
               }
               appearance={appearance}
             />
