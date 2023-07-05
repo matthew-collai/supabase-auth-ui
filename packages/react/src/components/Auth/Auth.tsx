@@ -133,7 +133,6 @@ function Auth({
     showLinks,
     i18n,
     appearance,
-    serviceAgreementText
   }
 
   /**
