@@ -44,7 +44,7 @@ const inputDefaultStyles = css({
 
 interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
   children?: React.ReactNode
-  type: 'text' | 'password' | 'email'
+  type: 'text' | 'password' | 'email' | 'checkbox'
   appearance?: Appearance
 }
 
@@ -62,6 +62,7 @@ const Input: React.FC<InputProps> = ({ children, appearance, ...props }) => {
       {...props}
       style={appearance?.style?.input}
       className={classNames.join(' ')}
+      disabled={!props.tos}
     >
       {children}
     </input>

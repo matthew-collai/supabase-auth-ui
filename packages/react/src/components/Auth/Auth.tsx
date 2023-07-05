@@ -29,6 +29,7 @@ function Auth({
   localization = { variables: {} },
   otpType = 'email',
   additionalData,
+  serviceAgreementText,
   children,
 }: AuthProps): JSX.Element | null {
   /**
@@ -132,6 +133,7 @@ function Auth({
     showLinks,
     i18n,
     appearance,
+    serviceAgreementText
   }
 
   /**

@@ -33,6 +33,7 @@ export interface EmailAuthProps {
   i18n?: I18nVariables
   appearance?: Appearance
   children?: React.ReactNode
+  serviceAgreementText?: string
 }
 
 function EmailAuth({
@@ -47,6 +48,7 @@ function EmailAuth({
   redirectTo,
   additionalData,
   magicLink,
+  serviceAgreementText = '',
   i18n,
   appearance,
   children,
@@ -57,6 +59,7 @@ function EmailAuth({
   const [error, setError] = useState('')
   const [loading, setLoading] = useState(false)
   const [message, setMessage] = useState('')
+  const [tos, setTos] = useState(false);
 
   useEffect(() => {
     isMounted.current = true
@@ -140,6 +143,7 @@ function EmailAuth({
               onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
                 setEmail(e.target.value)
               }
+              tos={tos}
               autoComplete="email"
               appearance={appearance}
             />
@@ -154,6 +158,7 @@ function EmailAuth({
               name="password"
               placeholder={labels?.password_input_placeholder}
               defaultValue={password}
+              tos={tos}
               onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
                 setPassword(e.target.value)
               }
@@ -171,6 +176,7 @@ function EmailAuth({
           color="primary"
           loading={loading}
           appearance={appearance}
+          tos={tos}
         >
           {loading ? labels?.loading_button_label : labels?.button_label}
         </Button>
@@ -227,6 +233,23 @@ function EmailAuth({
           </Container>
         )}
       </Container>
+      {authView === 'sign_up' && serviceAgreementText && 
+        (<div>
+            <Input
+              id="service_agreement"
+              type="checkbox"
+              name="service_agreement"
+              defaultValue={false}
+              onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+                setTos(e.target.value)
+              }
+              appearance={appearance}
+            />
+            <Label htmlFor="service_agreement" appearance={appearance}>
+              {serviceAgreementText}
+            </Label>
+        </div>)
+      }
       {message && <Message appearance={appearance}>{message}</Message>}
       {error && (
         <Message color="danger" appearance={appearance}>
