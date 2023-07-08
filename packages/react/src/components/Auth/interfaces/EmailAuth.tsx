@@ -17,6 +17,7 @@ import {
   Label,
   Message,
 } from './../../UI/index.js'
+import { ServiceAgreement } from '../../../types'
 
 export interface EmailAuthProps {
   authView?: ViewSignIn | ViewSignUp
@@ -33,7 +34,7 @@ export interface EmailAuthProps {
   i18n?: I18nVariables
   appearance?: Appearance
   children?: React.ReactNode
-  serviceAgreementText?: string
+  serviceAgreement?: ServiceAgreement
 }
 
 function EmailAuth({
@@ -48,7 +49,7 @@ function EmailAuth({
   redirectTo,
   additionalData,
   magicLink,
-  serviceAgreementText = '',
+  serviceAgreement = {},
   i18n,
   appearance,
   children,
@@ -119,6 +120,10 @@ function EmailAuth({
     setAuthView(newView)
   }
 
+  const isEmptyObject = (obj: Object): boolean => {
+    return Object.keys(obj).length === 0
+  }
+
   const labels = i18n?.[authView]
 
   return (
@@ -143,7 +148,7 @@ function EmailAuth({
               onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
                 setEmail(e.target.value)
               }
-              tos={tos || authView === 'sign_in'}
+              agreedToTos={tos || authView !== 'sign_up' || isEmptyObject(serviceAgreement)}
               autoComplete="email"
               appearance={appearance}
             />
@@ -158,7 +163,7 @@ function EmailAuth({
               name="password"
               placeholder={labels?.password_input_placeholder}
               defaultValue={password}
-              tos={tos || authView === 'sign_in'}
+              agreedToTos={tos || authView !== 'sign_up' || isEmptyObject(serviceAgreement)}
               onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
                 setPassword(e.target.value)
               }
@@ -176,7 +181,7 @@ function EmailAuth({
           color="primary"
           loading={loading}
           appearance={appearance}
-          tos={tos || authView === 'sign_in'}
+          tos={tos || authView !== 'sign_up' || isEmptyObject(serviceAgreement)}
         >
           {loading ? labels?.loading_button_label : labels?.button_label}
         </Button>
@@ -233,23 +238,20 @@ function EmailAuth({
           </Container>
         )}
       </Container>
-      {authView === 'sign_up' && serviceAgreementText && 
-        (<div>
+      {authView === 'sign_up' && !isEmptyObject(serviceAgreement) && (
+        <div>
             <Input
               id="service_agreement"
-              type="checkbox"
               name="service_agreement"
-              checked={false}
+              type={'checkbox'}
+              serviceAgreement={serviceAgreement}
               onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
                 setTos(e.target.checked)
               }
               appearance={appearance}
             />
-            <Label htmlFor="service_agreement" appearance={appearance}>
-              {serviceAgreementText}
-            </Label>
-        </div>)
-      }
+        </div>
+      )}
       {message && <Message appearance={appearance}>{message}</Message>}
       {error && (
         <Message color="danger" appearance={appearance}>

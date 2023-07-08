@@ -1,7 +1,7 @@
 import styles from './App.module.css'
 import { createClient } from '@supabase/supabase-js'
-import { SocialLayout, ThemeSupa, ViewType } from '@supabase/auth-ui-shared'
-import { Auth } from '@supabase/auth-ui-react'
+import { SocialLayout, ThemeSupa, ViewType } from '@collai/auth-ui-shared'
+import { Auth } from '@collai/auth-ui-react'
 import { useState } from 'react'
 import ToggleButton from './ToggleButton'
 import MenuIcon from './MenuIcon'
@@ -85,6 +85,15 @@ function App() {
                   providers={['apple', 'google', 'github']}
                   socialLayout={socialLayout}
                   theme={theme}
+                  serviceAgreement={{
+                    prefixText: 'By signing up you agree to the ',
+                    tosText: 'Terms of Service',
+                    tosLink: 'https://duckduckgo.com',
+                    joinText: ' & ',
+                    privacyPolicyText: 'Privacy Policy',
+                    privacyPolicyLink: 'https://google.com',
+                    linkStyle: {color: 'aquamarine'}
+                  }}
                 />
               </div>
             </div>

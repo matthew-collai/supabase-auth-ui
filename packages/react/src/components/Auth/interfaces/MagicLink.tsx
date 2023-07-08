@@ -58,6 +58,7 @@ function MagicLink({
             id="email"
             name="email"
             type="email"
+            agreedToTos={true}
             autoFocus
             placeholder={labels?.email_input_placeholder}
             onChange={(e: React.ChangeEvent<HTMLInputElement>) =>

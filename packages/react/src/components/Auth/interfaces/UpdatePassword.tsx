@@ -44,6 +44,7 @@ function UpdatePassword({
             placeholder={labels?.password_label}
             type="password"
             autoFocus
+            agreedToTos={true}
             onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
               setPassword(e.target.value)
             }

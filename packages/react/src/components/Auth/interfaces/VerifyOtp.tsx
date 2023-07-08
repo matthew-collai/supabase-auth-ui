@@ -75,6 +75,7 @@ function VerifyOtp({
               id="phone"
               name="phone"
               type="text"
+              agreedToTos={true}
               autoFocus
               placeholder={labels?.phone_input_placeholder}
               onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
@@ -93,6 +94,7 @@ function VerifyOtp({
               name="email"
               type="email"
               autoFocus
+              agreedToTos={true}
               placeholder={labels?.email_input_placeholder}
               onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
                 setEmail(e.target.value)
@@ -109,6 +111,7 @@ function VerifyOtp({
             id="token"
             name="token"
             type="text"
+            agreedToTos={true}
             placeholder={labels?.token_input_placeholder}
             onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
               setToken(e.target.value)
