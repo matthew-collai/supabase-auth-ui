@@ -17,5 +17,15 @@ export interface Appearance extends BaseAppearance {
 export interface Auth extends BaseAuth {
   children?: ReactNode
   appearance?: Appearance
-  serviceAgreementText?: string
+  serviceAgreement?: ServiceAgreement
+}
+
+export interface ServiceAgreement {
+  prefixText?: string
+  tosText?: string
+  tosLink?: string
+  joinText?: string
+  privacyPolicyText?: string
+  privacyPolicyLink?: string
+  linkStyle?: React.CSSProperties
 }

@@ -1,7 +1,6 @@
 import { css } from '@stitches/core'
 import { generateClassNames } from '@collai/auth-ui-shared'
-import { Appearance } from '../../types'
-import { ServiceAgreement } from '../types'
+import { Appearance, ServiceAgreement } from '../../types'
 
 const inputDefaultStyles = css({
   fontFamily: '$inputFontFamily',

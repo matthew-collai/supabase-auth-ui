@@ -17,7 +17,7 @@ import {
   Label,
   Message,
 } from './../../UI/index.js'
-import { ServiceAgreement } from '../../types'
+import { ServiceAgreement } from '../../../types'
 
 export interface EmailAuthProps {
   authView?: ViewSignIn | ViewSignUp
