@@ -59,6 +59,7 @@ function ForgottenPassword({
             type="email"
             autoFocus
             placeholder={labels?.email_input_placeholder}
+            agreedToTos={true}
             onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
               setEmail(e.target.value)
             }

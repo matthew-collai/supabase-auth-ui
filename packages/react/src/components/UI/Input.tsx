@@ -1,6 +1,7 @@
 import { css } from '@stitches/core'
 import { generateClassNames } from '@collai/auth-ui-shared'
 import { Appearance } from '../../types'
+import { ServiceAgreement } from '../types'
 
 const inputDefaultStyles = css({
   fontFamily: '$inputFontFamily',
@@ -27,6 +28,9 @@ const inputDefaultStyles = css({
     color: '$inputPlaceholder',
     letterSpacing: 'initial',
   },
+  'a:link': {
+    color: 'blue',
+  },  
   transitionProperty: 'background-color, border',
   transitionTimingFunction: 'cubic-bezier(0.4, 0, 0.2, 1)',
   transitionDuration: '100ms',
@@ -46,7 +50,8 @@ interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
   children?: React.ReactNode
   type: 'text' | 'password' | 'email' | 'checkbox'
   appearance?: Appearance
-  tos?: boolean
+  agreedToTos?: boolean
+  serviceAgreement?: ServiceAgreement
 }
 
 const Input: React.FC<InputProps> = ({ children, appearance, ...props }) => {
@@ -59,14 +64,35 @@ const Input: React.FC<InputProps> = ({ children, appearance, ...props }) => {
   )
 
   return (
-    <input
+    props.type === 'checkbox' ?
+    <>
+      <input      
+        {...props} 
+        style={appearance?.style?.input}
+        type="checkbox" 
+        name="checkbox" 
+        id="tos_id" 
+        value="choice"/>
+      <label htmlFor="tos_id">{props.serviceAgreement?.prefixText}</label>
+      { props.serviceAgreement?.tosText && props.serviceAgreement?.tosLink &&
+        <a style={props.serviceAgreement?.linkStyle} href={props.serviceAgreement?.tosLink}>{props.serviceAgreement?.tosText}</a>
+      }
+      { props.serviceAgreement?.joinText && 
+        <label>{props.serviceAgreement?.joinText}</label>
+      }
+      { props.serviceAgreement?.privacyPolicyText && props.serviceAgreement?.privacyPolicyLink &&
+        <a style={props.serviceAgreement?.linkStyle} href={props.serviceAgreement?.privacyPolicyLink}>{props.serviceAgreement?.privacyPolicyText}</a>
+      }
+      .
+    </>
+    : <input
       {...props}
       style={appearance?.style?.input}
       className={classNames.join(' ')}
-      disabled={!props.tos}
+      disabled={!props.agreedToTos}
     >
       {children}
-    </input>
+    </input> 
   )
 }
 

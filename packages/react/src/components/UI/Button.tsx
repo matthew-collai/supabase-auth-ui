@@ -74,7 +74,7 @@ const Button: React.FC<ButtonProps> = ({
       {...props}
       style={appearance?.style?.button}
       className={classNames.join(' ')}
-      disabled={loading && !tos}
+      disabled={loading || !tos}
     >
       {icon}
       {children}
