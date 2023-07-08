@@ -28,4 +28,5 @@ export interface ServiceAgreement {
   privacyPolicyText?: string
   privacyPolicyLink?: string
   linkStyle?: React.CSSProperties
+  labelStyle?: React.CSSProperties
 }

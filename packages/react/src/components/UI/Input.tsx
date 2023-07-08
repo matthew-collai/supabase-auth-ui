@@ -27,9 +27,6 @@ const inputDefaultStyles = css({
     color: '$inputPlaceholder',
     letterSpacing: 'initial',
   },
-  'a:link': {
-    color: 'blue',
-  },  
   transitionProperty: 'background-color, border',
   transitionTimingFunction: 'cubic-bezier(0.4, 0, 0.2, 1)',
   transitionDuration: '100ms',
@@ -72,12 +69,12 @@ const Input: React.FC<InputProps> = ({ children, appearance, ...props }) => {
         name="checkbox" 
         id="tos_id" 
         value="choice"/>
-      <label htmlFor="tos_id">{props.serviceAgreement?.prefixText}</label>
+      <label htmlFor="tos_id" style={props.serviceAgreement?.labelStyle}>{props.serviceAgreement?.prefixText}</label>
       { props.serviceAgreement?.tosText && props.serviceAgreement?.tosLink &&
         <a style={props.serviceAgreement?.linkStyle} href={props.serviceAgreement?.tosLink}>{props.serviceAgreement?.tosText}</a>
       }
       { props.serviceAgreement?.joinText && 
-        <label>{props.serviceAgreement?.joinText}</label>
+        <label style={props.serviceAgreement?.labelStyle}>{props.serviceAgreement?.joinText}</label>
       }
       { props.serviceAgreement?.privacyPolicyText && props.serviceAgreement?.privacyPolicyLink &&
         <a style={props.serviceAgreement?.linkStyle} href={props.serviceAgreement?.privacyPolicyLink}>{props.serviceAgreement?.privacyPolicyText}</a>
