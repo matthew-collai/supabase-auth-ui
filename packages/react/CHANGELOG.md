@@ -1,5 +1,11 @@
 # @supabase/auth-ui-react
 
+## 0.4.3
+
+### Patch Changes
+
+- Fix issues with previous release
+
 ## 0.4.2
 
 ### Patch Changes
